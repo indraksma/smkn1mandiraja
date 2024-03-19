@@ -1,0 +1,35 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2024-03-06 11:32:32 --> 404 Page Not Found: Media_library/images
+ERROR - 2024-03-06 11:46:52 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 11:47:50 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 11:59:03 --> 404 Page Not Found: Media_library/images
+ERROR - 2024-03-06 11:59:16 --> 404 Page Not Found: Media_library/images
+ERROR - 2024-03-06 12:00:17 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:00:17 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:02:29 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:02:29 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:03:59 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:03:59 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:10:26 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:10:26 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:12:07 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:12:07 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:13:10 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:13:10 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:14:34 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:14:34 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:18:24 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:18:24 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:21:26 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:21:26 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:48:24 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:48:24 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:49:23 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:49:23 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:49:49 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:49:49 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:50:25 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:50:25 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:50:35 --> 404 Page Not Found: Assets/plugins
+ERROR - 2024-03-06 12:50:35 --> 404 Page Not Found: Assets/plugins
