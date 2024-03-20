@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
  * CMS Sekolahku | CMS (Content Management System) dan PPDB/PMB Online GRATIS
@@ -14,7 +14,8 @@
  * 3. TIDAK DIPERKENANKAN MENGHAPUS KODE SUMBER APLIKASI.
  */
 
-class M_menus extends CI_Model {
+class M_menus extends CI_Model
+{
 
 	/**
 	 * Primary key
@@ -33,7 +34,8 @@ class M_menus extends CI_Model {
 	 *
 	 * @return Void
 	 */
-	public function __construct() {
+	public function __construct()
+	{
 		parent::__construct();
 	}
 
@@ -41,7 +43,8 @@ class M_menus extends CI_Model {
 	 * Get All Menus
 	 * @return Resource
 	 */
-	public function get_menus() {
+	public function get_menus()
+	{
 		return $this->db
 			->select('id, menu_title, menu_url, menu_type, is_deleted')
 			->order_by('menu_parent_id', 'ASC')
@@ -49,12 +52,19 @@ class M_menus extends CI_Model {
 			->get(self::$table);
 	}
 
+	public function get_proli()
+	{
+		$menu = $this->nested_menus(27);
+		return $menu;
+	}
+
 	/**
 	 * Fungsi untuk menu recursive : TOP Navigasi
 	 * @param Integer $menu_parent_id
 	 * @return Array
 	 */
-	public function nested_menus($menu_parent_id = 0) {
+	public function nested_menus($menu_parent_id = 0)
+	{
 		$menu = [];
 		$this->db->select('id, menu_title, menu_url, menu_target, menu_type');
 		$this->db->where('menu_parent_id', $menu_parent_id);
@@ -81,8 +91,9 @@ class M_menus extends CI_Model {
 	 * @param Integer $children
 	 * @return Void
 	 */
-	public function save_menu_position($menu_parent_id, $children) {
-		if ( ! is_null($children) ) {
+	public function save_menu_position($menu_parent_id, $children)
+	{
+		if (!is_null($children)) {
 			$i = 1;
 			foreach ($children as $key => $value) {
 				$id = $children[$key]['id'];

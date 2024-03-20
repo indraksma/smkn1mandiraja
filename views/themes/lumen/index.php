@@ -117,7 +117,7 @@
 								<li>
 									<h5 class="font-weight-bold brand"><?= strtoupper(__session('school_name')) ?></h5>
 								</li>
-								<li><small>Banjarnegara, Jawa Tengah</small></li>
+								<li>Banjarnegara, Jawa Tengah</li>
 							</ul>
 						</div>
 					</div>
@@ -165,8 +165,8 @@
 			<!-- IMAGE SLIDERS -->
 			<?php $query = get_image_sliders();
 			if ($query->num_rows() > 0) { ?>
-				<div class="container <?php $quotes = get_quotes();
-										echo $quotes->num_rows() == 0 ? 'mb-3' : '' ?>">
+				<div class="container-fluid <?php $quotes = get_quotes();
+											echo $quotes->num_rows() == 0 ? 'mb-3' : '' ?>">
 					<div id="slide-indicators" class="carousel slide" data-ride="carousel">
 						<ol class="carousel-indicators mt-3 mb-3">
 							<?php $idx = 0;
@@ -194,7 +194,7 @@
 			<!-- QUOTE -->
 			<?php $query = get_quotes();
 			if ($query->num_rows() > 0) { ?>
-				<div class="container mb-3">
+				<div class="container-fluid mb-3">
 					<div class="quote">
 						<div class="quote-title"><i class="fa fa-comments"></i> KUTIPAN</div>
 						<ul id="quote" class="quote">
@@ -212,7 +212,9 @@
 	<section class="content">
 		<div class="container">
 			<div class="row">
-				<?php $this->load->view($content) ?>
+				<?php
+				$this->load->view($content)
+				?>
 			</div>
 		</div>
 	</section>
@@ -247,13 +249,11 @@
 						</ul>
 					</div>
 					<div class="col-md-4 col-xs-12 text-md-left mb-2 mt-2">
-						<h6 class="page-title">Tags</h6>
+						<h6 class="page-title">Program Keahlian</h6>
 						<div class="tag-content-block tag">
-							<?php $query = get_tags(10);
-							if ($query->num_rows() > 0) { ?>
-								<?php foreach ($query->result() as $row) { ?>
-									<a href="<?= site_url('tag/' . $row->slug) ?>"><?= $row->tag ?></a>
-								<?php } ?>
+							<?php $proli = get_proli(); ?>
+							<?php foreach ($proli as $row) { ?>
+								<a href="<?= site_url('tag/' . $row['menu_url']) ?>"><?= $row['menu_title'] ?></a>
 							<?php } ?>
 						</div>
 					</div>
@@ -261,11 +261,11 @@
 						<h6 class="page-title">Tautan</h6>
 						<?php $links = get_links();
 						if ($links->num_rows() > 0) { ?>
-							<ul class="list-unstyled">
+							<div class="list-group footer-link">
 								<?php foreach ($links->result() as $row) { ?>
-									<li class="float-left"><a href="<?= $row->link_url ?>" style="color:#fff;" target="<?= $row->link_target ?>"><?= $row->link_title ?></a></li>
+									<a href="<?= $row->link_url ?>" class="footer-links list-group-item list-group-item-action p-0" target="<?= $row->link_target ?>"><?= $row->link_title ?></a>
 								<?php } ?>
-							</ul>
+							</div>
 						<?php } ?>
 					</div>
 				</div>
@@ -288,6 +288,8 @@
 		</form>
 	</div>
 	<a href="javascript:" id="return-to-top" class="rounded-lg"><i class="fa fa-angle-double-up"></i></a>
+
+	<script src="<?= base_url('assets/js/calendar.js') ?>"></script>
 </body>
 
 </html>

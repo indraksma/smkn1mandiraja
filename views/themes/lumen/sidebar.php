@@ -5,8 +5,22 @@
 			<iframe width="100%" height="auto" src="https://www.youtube.com/embed/vuEcpOmE1lM?si=MPTvkkuudnXBLdTW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 		</div>
 	</div>
+	<h5 class="page-title mt-3 mb-3">Kalender</h5>
+	<div class="card border border-secondary mb-3">
+		<div class="card-body">
+			<div class="calendar calendar-first" id="calendar_first">
+				<div class="calendar_header">
+					<button class="switch-month switch-left"> <i class="fa fa-chevron-left"></i></button>
+					<h2></h2>
+					<button class="switch-month switch-right"> <i class="fa fa-chevron-right"></i></button>
+				</div>
+				<div class="calendar_weekdays"></div>
+				<div class="calendar_content"></div>
+			</div>
+		</div>
+	</div>
 	<!-- Sambutan Kepala Sekolah  -->
-	<?php if (!in_array($this->uri->segment(1), ['sambutan-kepala-sekolah', 'sambutan-rektor', 'sambutan-ketua', 'sambutan-direktur'])) { ?>
+	<!-- <?php if (!in_array($this->uri->segment(1), ['sambutan-kepala-sekolah', 'sambutan-rektor', 'sambutan-ketua', 'sambutan-direktur'])) { ?>
 		<div class="card border border-secondary mb-3">
 			<img src="<?= base_url('media_library/images/') . __session('headmaster_photo'); ?>" class="card-img-top " style="padding:20px 50px 0px 50px;">
 			<div class="card-body">
@@ -18,7 +32,7 @@
 				<small class="text-muted text-uppercase"><a href="<?= site_url(opening_speech_route()); ?>">Selengkapnya</a></small>
 			</div>
 		</div>
-	<?php } ?>
+	<?php } ?> -->
 
 	<!-- <?php $links = get_links();
 			if ($links->num_rows() > 0) { ?>

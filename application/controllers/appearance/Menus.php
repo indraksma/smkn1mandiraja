@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
  * CMS Sekolahku | CMS (Content Management System) dan PPDB/PMB Online GRATIS
@@ -14,14 +14,16 @@
  * 3. TIDAK DIPERKENANKAN MENGHAPUS KODE SUMBER APLIKASI.
  */
 
-class Menus extends Admin_Controller {
+class Menus extends Admin_Controller
+{
 
 	/**
 	 * Class Constructor
 	 *
 	 * @return Void
 	 */
-	public function __construct() {
+	public function __construct()
+	{
 		parent::__construct();
 		$this->load->model('m_menus');
 		$this->pk = M_menus::$pk;
@@ -32,7 +34,8 @@ class Menus extends Admin_Controller {
 	 * Index
 	 * @return Void
 	 */
-	public function index() {
+	public function index()
+	{
 		$this->vars['title'] = 'Menu';
 		$this->vars['appearance'] = $this->vars['menus'] = TRUE;
 		$this->vars['content'] = 'appearance/menus';
@@ -43,7 +46,8 @@ class Menus extends Admin_Controller {
 	 * Get All Menus
 	 * @return Object
 	 */
-	public function get_menus() {
+	public function get_menus()
+	{
 		if ($this->input->is_ajax_request()) {
 			$query = $this->m_menus->get_menus();
 			$this->vars['rows'] = $query->result();
@@ -56,10 +60,11 @@ class Menus extends Admin_Controller {
 	}
 
 	/**
-    * Get All Pages
-    * @return Object
-    */
-	public function get_pages() {
+	 * Get All Pages
+	 * @return Object
+	 */
+	public function get_pages()
+	{
 		if ($this->input->is_ajax_request()) {
 			$this->load->model('m_pages');
 			$query = $this->m_pages->get_pages();
@@ -73,10 +78,11 @@ class Menus extends Admin_Controller {
 	}
 
 	/**
-    * Get All Post Categories
-    * @return Object
-    */
-	public function get_post_categories() {
+	 * Get All Post Categories
+	 * @return Object
+	 */
+	public function get_post_categories()
+	{
 		if ($this->input->is_ajax_request()) {
 			$this->load->model('m_categories');
 			$query = $this->m_categories->get_categories('post');
@@ -90,10 +96,11 @@ class Menus extends Admin_Controller {
 	}
 
 	/**
-    * Get All File Categories
-    * @return Object
-    */
-	public function get_file_categories() {
+	 * Get All File Categories
+	 * @return Object
+	 */
+	public function get_file_categories()
+	{
 		if ($this->input->is_ajax_request()) {
 			$this->load->model('m_categories');
 			$query = $this->m_categories->get_categories('file');
@@ -110,12 +117,13 @@ class Menus extends Admin_Controller {
 	 * Delete Menus Permanently
 	 * @return Object
 	 */
-	public function delete_permanently() {
+	public function delete_permanently()
+	{
 		if ($this->input->is_ajax_request()) {
 			$id = _toInteger($this->input->post('id', true));
-			if (_isNaturalNumber( $id )) {
+			if (_isNaturalNumber($id)) {
 				$is_exists = $this->model->is_exists('menu_parent_id', $id, $this->table);
-				if ( ! $is_exists ) {
+				if (!$is_exists) {
 					$this->model->delete_permanently($this->pk, $id, $this->table);
 					$this->vars['status'] = $this->model->delete_permanently($this->pk, $id, $this->table) ? 'success' : 'error';
 					$this->vars['message'] = $this->vars['status'] == 'success' ? 'deleted' : 'not_deleted';
@@ -139,7 +147,8 @@ class Menus extends Admin_Controller {
 	 * Truncate table menus
 	 * @return Object
 	 */
-	public function truncate_table() {
+	public function truncate_table()
+	{
 		if ($this->input->is_ajax_request()) {
 			$this->vars['status'] = $this->model->truncate($this->table) ? 'success' : 'error';
 			$this->vars['message'] = $this->vars['status'] == 'success' ? 'deleted' : 'not_deleted';
@@ -155,7 +164,8 @@ class Menus extends Admin_Controller {
 	 * Get Nested Menus
 	 * @return Object
 	 */
-	public function nested_menus() {
+	public function nested_menus()
+	{
 		if ($this->input->is_ajax_request()) {
 			$query = $this->m_menus->nested_menus();
 			$this->output
@@ -166,12 +176,13 @@ class Menus extends Admin_Controller {
 		}
 	}
 
-   /**
-    * Save menu position
-    * @return Object
-    */
-   public function save_menu_position() {
-   	if ($this->input->is_ajax_request()) {
+	/**
+	 * Save menu position
+	 * @return Object
+	 */
+	public function save_menu_position()
+	{
+		if ($this->input->is_ajax_request()) {
 			if (NULL !== $this->input->post('menus')) {
 				$menus = json_decode($this->input->post('menus'), true);
 				$this->m_menus->save_menu_position(0, $menus);
@@ -184,14 +195,14 @@ class Menus extends Admin_Controller {
 				->_display();
 			exit;
 		}
-
-   }
+	}
 
 	/**
-    * Save Custom Links
-    * @return Object
-    */
-	public function save_links() {
+	 * Save Custom Links
+	 * @return Object
+	 */
+	public function save_links()
+	{
 		if ($this->input->is_ajax_request()) {
 			$this->db->set('menu_url', ($this->input->post('menu_url', true) && $this->input->post('menu_url', true) != '#') ? prep_url($this->input->post('menu_url', true)) : '#');
 			$this->db->set('menu_title', $this->input->post('menu_title', true));
@@ -210,16 +221,17 @@ class Menus extends Admin_Controller {
 	}
 
 	/**
-    * Save Menus From Pages
-    * @return Object
-    */
-	public function save_pages() {
+	 * Save Menus From Pages
+	 * @return Object
+	 */
+	public function save_pages()
+	{
 		if ($this->input->is_ajax_request()) {
 			$ids = explode(',', $this->input->post('ids'));
-			foreach($ids as $id) {
+			foreach ($ids as $id) {
 				$query = $this->model->RowObject('id', $id, 'posts');
 				$this->db->set('menu_title', $query->post_title);
-				$this->db->set('menu_url', 'read/' . $id . '/'.$query->post_slug);
+				$this->db->set('menu_url', 'read/' . $id . '/' . $query->post_slug);
 				$this->db->set('menu_type', 'pages');
 				$this->db->set('menu_target', '_self');
 				$this->db->set('created_at', date('Y-m-d H:i:s'));
@@ -237,16 +249,17 @@ class Menus extends Admin_Controller {
 	}
 
 	/**
-    * Save Menus From Posts Categories
-    * @return Object
-    */
-	public function save_post_categories() {
+	 * Save Menus From Posts Categories
+	 * @return Object
+	 */
+	public function save_post_categories()
+	{
 		if ($this->input->is_ajax_request()) {
 			$ids = explode(',', $this->input->post('ids'));
-			foreach($ids as $id) {
+			foreach ($ids as $id) {
 				$query = $this->model->RowObject('id', $id, 'categories');
 				$this->db->set('menu_title', $query->category_name);
-				$this->db->set('menu_url', 'kategori/'.$query->category_slug);
+				$this->db->set('menu_url', 'kategori/' . $query->category_slug);
 				$this->db->set('menu_type', 'post_categories');
 				$this->db->set('menu_target', '_self');
 				$this->db->set('created_at', date('Y-m-d H:i:s'));
@@ -264,16 +277,17 @@ class Menus extends Admin_Controller {
 	}
 
 	/**
-    * Save Menus From File Categories
-    * @return Object
-    */
-	public function save_file_categories() {
+	 * Save Menus From File Categories
+	 * @return Object
+	 */
+	public function save_file_categories()
+	{
 		if ($this->input->is_ajax_request()) {
 			$ids = explode(',', $this->input->post('ids'));
-			foreach($ids as $id) {
+			foreach ($ids as $id) {
 				$query = $this->model->RowObject('id', $id, 'categories');
 				$this->db->set('menu_title', $query->category_name);
-				$this->db->set('menu_url', 'download/'.$query->category_slug);
+				$this->db->set('menu_url', 'download/' . $query->category_slug);
 				$this->db->set('menu_type', 'file_categories');
 				$this->db->set('menu_target', '_self');
 				$this->db->set('created_at', date('Y-m-d H:i:s'));
@@ -291,13 +305,14 @@ class Menus extends Admin_Controller {
 	}
 
 	/**
-    * Save Menus From List Modules
-    * @return Object
-    */
-	public function save_modules() {
+	 * Save Menus From List Modules
+	 * @return Object
+	 */
+	public function save_modules()
+	{
 		if ($this->input->is_ajax_request()) {
 			$modules = explode(',', $this->input->post('modules'));
-			foreach($modules as $module) {
+			foreach ($modules as $module) {
 				$this->db->set('menu_title', modules($module));
 				$this->db->set('menu_url', $module);
 				$this->db->set('menu_type', 'modules');
@@ -320,7 +335,8 @@ class Menus extends Admin_Controller {
 	 * Save | Update
 	 * @return Object
 	 */
-	public function save() {
+	public function save()
+	{
 		if ($this->input->is_ajax_request()) {
 			$id = _toInteger($this->input->post('id', true));
 			if ($this->validation()) {
@@ -344,7 +360,8 @@ class Menus extends Admin_Controller {
 	 * Dataset
 	 * @return Array
 	 */
-	private function dataset() {
+	private function dataset()
+	{
 		$dataset = [];
 		$dataset['menu_title'] = $this->input->post('menu_title', true);
 		$dataset['menu_url'] = $this->input->post('menu_url', true);
@@ -365,7 +382,8 @@ class Menus extends Admin_Controller {
 	 * Validation Form
 	 * @return Boolean
 	 */
-	private function validation() {
+	private function validation()
+	{
 		$this->load->library('form_validation');
 		$val = $this->form_validation;
 		$val->set_rules('menu_title', 'Judul Menu', 'trim|required');

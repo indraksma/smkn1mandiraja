@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
  * CMS Sekolahku | CMS (Content Management System) dan PPDB/PMB Online GRATIS
@@ -17,8 +17,9 @@
 /**
  * Get Active Theme
  */
-if ( ! function_exists('theme_folder')) {
-	function theme_folder() {
+if (!function_exists('theme_folder')) {
+	function theme_folder()
+	{
 		$CI = &get_instance();
 		return $CI->session->userdata('theme');
 	}
@@ -29,11 +30,12 @@ if ( ! function_exists('theme_folder')) {
  * @param Integer $limit
  * @return Resource
  */
-if ( ! function_exists('get_links')) {
-	function get_links( $limit = 0 ) {
+if (!function_exists('get_links')) {
+	function get_links($limit = 0)
+	{
 		$CI = &get_instance();
 		$CI->load->model('m_links');
-		return $CI->m_links->get_links( $limit );
+		return $CI->m_links->get_links($limit);
 	}
 }
 
@@ -42,11 +44,12 @@ if ( ! function_exists('get_links')) {
  * @param Integer $limit
  * @return Resource
  */
-if ( ! function_exists('get_tags')) {
-	function get_tags( $limit = 0 ) {
+if (!function_exists('get_tags')) {
+	function get_tags($limit = 0)
+	{
 		$CI = &get_instance();
 		$CI->load->model('m_tags');
-		return $CI->m_tags->get_tags( $limit, TRUE);
+		return $CI->m_tags->get_tags($limit, TRUE);
 	}
 }
 
@@ -55,19 +58,21 @@ if ( ! function_exists('get_tags')) {
  * @param Integer $limit
  * @return Resource
  */
-if ( ! function_exists('get_banners')) {
-	function get_banners( $limit = 0 ) {
+if (!function_exists('get_banners')) {
+	function get_banners($limit = 0)
+	{
 		$CI = &get_instance();
 		$CI->load->model('m_banners');
-		return $CI->m_banners->get_banners( $limit );
+		return $CI->m_banners->get_banners($limit);
 	}
 }
 
 /**
  * Get Archive Year
  */
-if ( ! function_exists('get_years')) {
-	function get_years() {
+if (!function_exists('get_years')) {
+	function get_years()
+	{
 		$CI = &get_instance();
 		$CI->load->model('public/m_posts');
 		return $CI->m_posts->get_years();
@@ -78,22 +83,24 @@ if ( ! function_exists('get_years')) {
  * Get Archives
  * @param Integer $year
  */
-if ( ! function_exists('get_archives')) {
-	function get_archives( $year ) {
+if (!function_exists('get_archives')) {
+	function get_archives($year)
+	{
 		$CI = &get_instance();
 		$CI->load->model('public/m_posts');
-		return $CI->m_posts->get_archives( $year );
+		return $CI->m_posts->get_archives($year);
 	}
 }
 
 /**
  * Get Quotes
  */
-if ( ! function_exists('get_quotes')) {
-	function get_quotes( $limit = 0 ) {
+if (!function_exists('get_quotes')) {
+	function get_quotes($limit = 0)
+	{
 		$CI = &get_instance();
 		$CI->load->model('m_quotes');
-		return $CI->m_quotes->get_quotes( $limit );
+		return $CI->m_quotes->get_quotes($limit);
 	}
 }
 
@@ -102,19 +109,21 @@ if ( ! function_exists('get_quotes')) {
  * @param Integer $limit
  * @return Resource
  */
-if ( ! function_exists('get_image_sliders')) {
-	function get_image_sliders( $limit = 0 ) {
+if (!function_exists('get_image_sliders')) {
+	function get_image_sliders($limit = 0)
+	{
 		$CI = &get_instance();
 		$CI->load->model('m_image_sliders');
-		return $CI->m_image_sliders->get_image_sliders( $limit );
+		return $CI->m_image_sliders->get_image_sliders($limit);
 	}
 }
 
 /**
  * Get Question
  */
-if ( ! function_exists('get_active_question')) {
-	function get_active_question() {
+if (!function_exists('get_active_question')) {
+	function get_active_question()
+	{
 		$CI = &get_instance();
 		$CI->load->model('m_questions');
 		return $CI->m_questions->get_active_question();
@@ -126,11 +135,12 @@ if ( ! function_exists('get_active_question')) {
  * @param Integer $question_id
  * @return Resource
  */
-if ( ! function_exists('get_answers')) {
-	function get_answers( $question_id ) {
+if (!function_exists('get_answers')) {
+	function get_answers($question_id)
+	{
 		$CI = &get_instance();
 		$CI->load->model('m_answers');
-		return $CI->m_answers->get_answers( $question_id );
+		return $CI->m_answers->get_answers($question_id);
 	}
 }
 
@@ -139,11 +149,12 @@ if ( ! function_exists('get_answers')) {
  * @param Integer $limit
  * @return Resource
  */
-if ( ! function_exists('get_latest_posts')) {
-	function get_latest_posts( $limit = 0 ) {
+if (!function_exists('get_latest_posts')) {
+	function get_latest_posts($limit = 0)
+	{
 		$CI = &get_instance();
 		$CI->load->model('public/m_posts');
-		return $CI->m_posts->get_latest_posts( $limit );
+		return $CI->m_posts->get_latest_posts($limit);
 	}
 }
 
@@ -152,11 +163,12 @@ if ( ! function_exists('get_latest_posts')) {
  * @param Integer $limit
  * @return Resource
  */
-if ( ! function_exists('get_popular_posts')) {
-	function get_popular_posts( $limit = 0 ) {
+if (!function_exists('get_popular_posts')) {
+	function get_popular_posts($limit = 0)
+	{
 		$CI = &get_instance();
 		$CI->load->model('public/m_posts');
-		return $CI->m_posts->get_popular_posts( $limit );
+		return $CI->m_posts->get_popular_posts($limit);
 	}
 }
 
@@ -165,11 +177,12 @@ if ( ! function_exists('get_popular_posts')) {
  * @param Integer $limit
  * @return Resource
  */
-if ( ! function_exists('get_most_commented')) {
-	function get_most_commented( $limit = 0 ) {
+if (!function_exists('get_most_commented')) {
+	function get_most_commented($limit = 0)
+	{
 		$CI = &get_instance();
 		$CI->load->model('public/m_posts');
-		return $CI->m_posts->get_most_commented( $limit );
+		return $CI->m_posts->get_most_commented($limit);
 	}
 }
 
@@ -178,11 +191,12 @@ if ( ! function_exists('get_most_commented')) {
  * @param Integer $limit
  * @return Resource
  */
-if ( ! function_exists('get_random_posts')) {
-	function get_random_posts( $limit = 0 ) {
+if (!function_exists('get_random_posts')) {
+	function get_random_posts($limit = 0)
+	{
 		$CI = &get_instance();
 		$CI->load->model('public/m_posts');
-		return $CI->m_posts->get_random_posts( $limit );
+		return $CI->m_posts->get_random_posts($limit);
 	}
 }
 
@@ -192,25 +206,27 @@ if ( ! function_exists('get_random_posts')) {
  * @param Integer $limit
  * @return Resource
  */
-if ( ! function_exists('get_post_categories')) {
-	function get_post_categories( $category_slug, $limit = 0 ) {
+if (!function_exists('get_post_categories')) {
+	function get_post_categories($category_slug, $limit = 0)
+	{
 		$CI = &get_instance();
 		$CI->load->model('public/m_posts');
-		return $CI->m_posts->get_post_categories( $category_slug, $limit );
+		return $CI->m_posts->get_post_categories($category_slug, $limit);
 	}
 }
 
 /**
  * Get Categories
  * @param String $category_type
-  * @param Integer $limit
+ * @param Integer $limit
  * @return Resource
  */
-if ( ! function_exists('get_categories')) {
-	function get_categories( $category_type, $limit = 0 ) {
+if (!function_exists('get_categories')) {
+	function get_categories($category_type, $limit = 0)
+	{
 		$CI = &get_instance();
 		$CI->load->model('m_categories');
-		return $CI->m_categories->get_categories( $category_type, $limit );
+		return $CI->m_categories->get_categories($category_type, $limit);
 	}
 }
 
@@ -220,11 +236,12 @@ if ( ! function_exists('get_categories')) {
  * @param Integer $id
  * @return Resource
  */
-if ( ! function_exists('get_related_posts')) {
-	function get_related_posts( $categories, $id ) {
+if (!function_exists('get_related_posts')) {
+	function get_related_posts($categories, $id)
+	{
 		$CI = &get_instance();
 		$CI->load->model('public/m_posts');
-		return $CI->m_posts->get_related_posts( $categories, $id );
+		return $CI->m_posts->get_related_posts($categories, $id);
 	}
 }
 
@@ -234,11 +251,12 @@ if ( ! function_exists('get_related_posts')) {
  * @param Integer $limit
  * @return Resource
  */
-if ( ! function_exists('get_another_pages')) {
-	function get_another_pages( $id, $limit = 0 ) {
+if (!function_exists('get_another_pages')) {
+	function get_another_pages($id, $limit = 0)
+	{
 		$CI = &get_instance();
 		$CI->load->model('public/m_posts');
-		return $CI->m_posts->get_another_pages( $id, $limit );
+		return $CI->m_posts->get_another_pages($id, $limit);
 	}
 }
 
@@ -247,11 +265,12 @@ if ( ! function_exists('get_another_pages')) {
  * @param Integer $limit
  * @return Resource
  */
-if ( ! function_exists('get_recent_comments')) {
-	function get_recent_comments( $limit = 0 ) {
+if (!function_exists('get_recent_comments')) {
+	function get_recent_comments($limit = 0)
+	{
 		$CI = &get_instance();
 		$CI->load->model('m_post_comments');
-		return $CI->m_post_comments->get_recent_comments( $limit );
+		return $CI->m_post_comments->get_recent_comments($limit);
 	}
 }
 
@@ -259,8 +278,9 @@ if ( ! function_exists('get_recent_comments')) {
  * opening_speech | Sambutan Kepala Sekolah
  * @return String
  */
-if ( ! function_exists('get_opening_speech')) {
-	function get_opening_speech() {
+if (!function_exists('get_opening_speech')) {
+	function get_opening_speech()
+	{
 		$CI = &get_instance();
 		$CI->load->model('public/m_posts');
 		return $CI->m_posts->get_opening_speech();
@@ -272,11 +292,12 @@ if ( ! function_exists('get_opening_speech')) {
  * @param Integer $limit
  * @return Resource
  */
-if ( ! function_exists('get_videos')) {
-	function get_videos( $limit = 0 ) {
+if (!function_exists('get_videos')) {
+	function get_videos($limit = 0)
+	{
 		$CI = &get_instance();
 		$CI->load->model('m_videos');
-		return $CI->m_videos->get_videos( $limit );
+		return $CI->m_videos->get_videos($limit);
 	}
 }
 
@@ -285,11 +306,12 @@ if ( ! function_exists('get_videos')) {
  * @param Integer $limit
  * @return Resource
  */
-if ( ! function_exists('get_albums')) {
-	function get_albums( $limit = 0 ) {
+if (!function_exists('get_albums')) {
+	function get_albums($limit = 0)
+	{
 		$CI = &get_instance();
 		$CI->load->model('m_albums');
-		return $CI->m_albums->get_albums( $limit );
+		return $CI->m_albums->get_albums($limit);
 	}
 }
 
@@ -297,11 +319,25 @@ if ( ! function_exists('get_albums')) {
  * Get Menus
  * @return Array
  */
-if ( ! function_exists('get_menus')) {
-	function get_menus() {
+if (!function_exists('get_menus')) {
+	function get_menus()
+	{
 		$CI = &get_instance();
 		$CI->load->model('m_menus');
 		return $CI->m_menus->nested_menus();
+	}
+}
+
+/**
+ * Get Program Keahlian
+ * @return Array
+ */
+if (!function_exists('get_proli')) {
+	function get_proli()
+	{
+		$CI = &get_instance();
+		$CI->load->model('m_menus');
+		return $CI->m_menus->get_proli();
 	}
 }
 
@@ -311,13 +347,14 @@ if ( ! function_exists('get_menus')) {
  * @return String
  */
 if (!function_exists('recursive_list')) {
-	function recursive_list($menus) {
+	function recursive_list($menus)
+	{
 		$nav = '';
 		foreach ($menus as $menu) {
 			$url = $menu['menu_url'] == '#' ? $menu['menu_url'] : base_url() . $menu['menu_url'];
 			if ($menu['menu_type'] == 'links') $url = $menu['menu_url'];
 			$nav .= '<li>';
-			$nav .= '<a href="'. $url .'" target="'. $menu['menu_target'] .'">' . strtoupper($menu['menu_title']) . '</a>';
+			$nav .= '<a href="' . $url . '" target="' . $menu['menu_target'] . '">' . strtoupper($menu['menu_title']) . '</a>';
 			$sub_nav = recursive_list($menu['children']);
 			if ($sub_nav) $nav .= "<ul>" . $sub_nav . "</ul>";
 			$nav .= "</li>";
@@ -330,13 +367,14 @@ if (!function_exists('recursive_list')) {
  * Routes | Opening Speech Route
  * @return String
  */
-if ( ! function_exists('opening_speech_route')) {
-	function opening_speech_route() {
+if (!function_exists('opening_speech_route')) {
+	function opening_speech_route()
+	{
 		$CI = &get_instance();
 		$level = (int) $CI->session->userdata('school_level');
-		if ( $level == 5 ) return 'sambutan-rektor';
-		if ( $level == 6 ) return 'sambutan-ketua';
-		if ( $level == 7 ) return 'sambutan-direktur';
+		if ($level == 5) return 'sambutan-rektor';
+		if ($level == 6) return 'sambutan-ketua';
+		if ($level == 7) return 'sambutan-direktur';
 		return 'sambutan-kepala-sekolah';
 	}
 }
